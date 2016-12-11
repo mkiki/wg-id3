@@ -37,6 +37,12 @@ describe('ID3', function() {
     });
   });
 
+  it('Check ID3 tags (2)', function(done) {
+    return helpers.checkTag("18 - When the sainta.mp3", 'When the saint', 'Toy Dolls (the)', 'Twenty two tunes live', 1990, 18, function() {
+      return done();
+    });
+  });
+
   it('Should not work for M4A tags', function(done) {
     var parser = new ID3();
     return parser.read(__dirname + "/data/12 Octopus4.m4a", function(err, tag) {
